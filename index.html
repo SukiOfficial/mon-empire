@@ -3,100 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BABICOIN - L'EMPIRE</title>
+    <title>BABICOIN GLOBAL EMPIRE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Base inspirée du design pro */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #000; color: #fff; line-height: 1.6; }
-
-        /* Barre de navigation (comme dans la vidéo) */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: #000; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; }
-        .logo { color: #ffd700; font-weight: bold; font-size: 1.5rem; text-transform: uppercase; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; }
-
-        /* Section Hero (Bannière d'accueil) */
-        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%); }
-        .hero h1 { font-size: 3.5rem; color: #ffd700; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; color: #ccc; }
-        .btn-main { background: #ffd700; color: #000; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s; }
-        .btn-main:hover { background: #e6c200; transform: scale(1.05); }
-
-        /* Sections de contenu (Structure de la vidéo) */
-        .section { padding: 80px 10%; text-align: center; }
-        .section h2 { font-size: 2.5rem; margin-bottom: 40px; color: #ffd700; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #050505; color: #fff; }
         
-        /* Grille de cartes (Prix/Services) */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: #111; padding: 40px; border-radius: 10px; border: 1px solid #222; transition: 0.3s; }
-        .card:hover { border-color: #ffd700; }
-        .card i { font-size: 3rem; color: #ffd700; margin-bottom: 20px; }
-        .card h3 { margin-bottom: 15px; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid #ffd700; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #ffd700; font-weight: 900; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; transition: 0.3s; }
+        .nav-links a:hover { color: #ffd700; }
 
-        /* Footer */
-        footer { padding: 50px 10%; background: #050505; border-top: 1px solid #222; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px; }
-        .footer-col h4 { color: #ffd700; margin-bottom: 20px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; color: #888; font-size: 0.9rem; }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80') no-repeat center center/cover; position: relative; }
+        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
+        .hero-content { position: relative; z-index: 1; padding: 0 20px; }
+        
+        h1 { font-size: 4rem; color: #ffd700; text-shadow: 0 0 20px rgba(255,215,0,0.5); margin-bottom: 10px; }
+        .world-text { font-size: 1.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 30px; color: #0f0; }
+        
+        .btn-gold { background: #ffd700; color: #000; padding: 20px 50px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.4s; border: 2px solid #ffd700; }
+        .btn-gold:hover { background: transparent; color: #ffd700; box-shadow: 0 0 30px #ffd700; }
+
+        .section { padding: 100px 5%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background: #111; padding: 50px; border-top: 4px solid #ffd700; transition: 0.3s; }
+        .card:hover { transform: translateY(-15px); background: #1a1a1a; }
+        
+        footer { padding: 60px; text-align: center; border-top: 1px solid #333; color: #555; }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="logo">BabiCoin</div>
         <div class="nav-links">
-            <a href="#">Économie</a>
-            <a href="#">Sécurité</a>
-            <a href="#">Empire</a>
+            <a href="securite.html">Sécurité</a>
+            <a href="empire.html">L'Empire</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Investissez dans votre souveraineté</h1>
-        <p>BabiCoin est la monnaie de l'empire, conçue pour la liberté financière totale. Pas de banques, pas de limites.</p>
-        <a href="#" class="btn-main">Ouvrir un compte</a>
+        <div class="hero-content">
+            <p class="world-text">Domination Mondiale</p>
+            <h1>SOUVERAINETÉ TOTALE</h1>
+            <p style="margin-bottom: 40px; font-size: 1.3rem;">BabiCoin : La monnaie qui ne dort jamais, de New York à Tokyo.</p>
+            <a href="inscription.html" class="btn-gold">OUVRIR MON COMPTE MONDIAL</a>
+        </div>
     </header>
 
     <div class="section">
-        <h2>Une application pour tout gérer</h2>
         <div class="grid">
             <div class="card">
-                <i class="fas fa-wallet"></i>
-                <h3>Portefeuille</h3>
-                <p>Gérez vos avoirs en toute sécurité avec un cryptage de niveau impérial.</p>
+                <i class="fas fa-globe" style="font-size: 3rem; color: #ffd700; margin-bottom: 20px;"></i>
+                <h3>SANS FRONTIÈRES</h3>
+                <p>Envoyez votre puissance financière partout dans le monde en 1 seconde.</p>
             </div>
             <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Marché</h3>
-                <p>Suivez l'évolution du BabiCoin en temps réel depuis Abidjan.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-exchange-alt"></i>
-                <h3>Échanges</h3>
-                <p>Envoyez et recevez des fonds instantanément sans frais cachés.</p>
+                <i class="fas fa-lock" style="font-size: 3rem; color: #ffd700; margin-bottom: 20px;"></i>
+                <h3>SÉCURITÉ MILITAIRE</h3>
+                <p>Vos actifs sont protégés par le protocole de l'Empire.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <div class="footer-col">
-            <h4>À propos</h4>
-            <ul>
-                <li>L'Empire</li>
-                <li>La sécurité</li>
-                <li>Les tarifs</li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Services</h4>
-            <ul>
-                <li>BabiCoin Pro</li>
-                <li>Plan Épargne</li>
-                <li>Assistance</li>
-            </ul>
-        </div>
+        &copy; 2026 SukiOfficial - Global Command Center.
     </footer>
-
 </body>
 </html>
