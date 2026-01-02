@@ -1,41 +1,97 @@
 :root {
-    --gold: #ffd700;
-    --dark: #050505;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --gold: #f2a900; /* Le vrai orange Bitcoin */
+    --bg: #0b0e11;   /* Le noir des plateformes de trading */
+    --card: #1e2329;
+    --text: #eaecef;
 }
 
 body {
-    background-color: var(--dark);
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
-/* Effet de verre pour les cartes */
-.card, .form-box {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    transition: all 0.4s ease;
+/* Header style Bitcoin */
+nav {
+    display: flex; justify-content: space-between; padding: 15px 5%;
+    background: var(--bg); border-bottom: 1px solid #333;
 }
 
-.card:hover {
-    border-color: var(--gold);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+.coin-price {
+    display: flex; gap: 20px; font-size: 0.8rem; color: #0ecb81;
 }
 
-/* Boutons animés */
-.btn-empire, .btn-main {
-    background: linear-gradient(45deg, #b8860b, #ffd700);
-    border: none;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-    transition: 0.3s;
+/* Dashboard Grid */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 15px; padding: 20px;
 }
 
-.btn-empire:hover {
-    letter-spacing: 2px;
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+.chart-box {
+    background: var(--card); border-radius: 10px; height: 400px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #333; position: relative;
 }
+
+.trade-panel {
+    background: var(--card); padding: 20px; border-radius: 10px;
+}
+
+.btn-buy {
+    background: #0ecb81; color: white; width: 100%; padding: 12px;
+    border: none; border-radius: 5px;
+
+cat <<EOF > index.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabiCoin Exchange | Live</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div style="font-weight:bold; color:var(--gold);">฿ BABICOIN</div>
+        <div class="coin-price">
+            <span>BTC/USD: <strong id="btc-price">4,231</strong></span>
+            <span>BABI/USD: <strong style="color:var(--gold);">.05</strong></span>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="chart-box">
+            <div style="text-align:center;">
+                <p style="color:#666;">[ Graphique Temps Réel BabiCoin ]</p>
+                <h2 id="live-price" style="font-size:3rem; margin:0; color:var(--gold);">฿ 1.05</h2>
+            </div>
+        </div>
+
+        <div class="trade-panel">
+            <h3>Trader</h3>
+            <div style="margin-bottom:20px;">
+                <small>Disponible: 0.00 FCFA</small>
+                <input type="number" placeholder="Montant en BABI" style="width:100%; background:#000; border:1px solid #444; color:#fff; padding:10px; margin-top:5px;">
+            </div>
+            <button class="btn-buy" onclick="location.href='inscription.html'">ACHETER</button>
+            <button class="btn-sell" onclick="location.href='inscription.html'">VENDRE</button>
+            
+            <div style="margin-top:30px; font-size:0.8rem; color:#888;">
+                <p>● Réseau : Mainnet</p>
+                <p>● Statut : Opérationnel</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulation de prix qui bouge comme un vrai site
+        setInterval(() => {
+            let basePrice = 1.05;
+            let move = (Math.random() * 0.02) - 0.01;
+            document.getElementById('live-price').innerText = "฿ " + (basePrice + move).toFixed(4);
+        }, 3000);
+    </script>
+</body>
+</html>
