@@ -3,71 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BABICOIN GLOBAL EMPIRE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #050505; color: #fff; }
-        
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid #ffd700; position: sticky; top: 0; z-index: 1000; }
-        .logo { color: #ffd700; font-weight: 900; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; transition: 0.3s; }
-        .nav-links a:hover { color: #ffd700; }
-
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80') no-repeat center center/cover; position: relative; }
-        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
-        .hero-content { position: relative; z-index: 1; padding: 0 20px; }
-        
-        h1 { font-size: 4rem; color: #ffd700; text-shadow: 0 0 20px rgba(255,215,0,0.5); margin-bottom: 10px; }
-        .world-text { font-size: 1.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 30px; color: #0f0; }
-        
-        .btn-gold { background: #ffd700; color: #000; padding: 20px 50px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.4s; border: 2px solid #ffd700; }
-        .btn-gold:hover { background: transparent; color: #ffd700; box-shadow: 0 0 30px #ffd700; }
-
-        .section { padding: 100px 5%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .card { background: #111; padding: 50px; border-top: 4px solid #ffd700; transition: 0.3s; }
-        .card:hover { transform: translateY(-15px); background: #1a1a1a; }
-        
-        footer { padding: 60px; text-align: center; border-top: 1px solid #333; color: #555; }
-    </style>
+    <title>BabiCoin Exchange | Live</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <div class="logo">BabiCoin</div>
-        <div class="nav-links">
-            <a href="paiement.html">Sécurité</a>
-            <a href="empire.html">L'Empire</a>
-            <a href="contact.html">Contact</a>
+        <div style="font-weight:bold; color:var(--gold);">฿ BABICOIN</div>
+        <div class="coin-price">
+            <span>BTC/USD: <strong id="btc-price">4,231</strong></span>
+            <span>BABI/USD: <strong style="color:var(--gold);">.05</strong></span>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <p class="world-text">Domination Mondiale</p>
-            <h1>SOUVERAINETÉ TOTALE</h1>
-            <p style="margin-bottom: 40px; font-size: 1.3rem;">BabiCoin : La monnaie qui ne dort jamais, de New York à Tokyo.</p>
-            <a href="inscription.html" class="btn-gold">OUVRIR MON COMPTE MONDIAL</a>
-        </div>
-    </header>
-
-    <div class="section">
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-globe" style="font-size: 3rem; color: #ffd700; margin-bottom: 20px;"></i>
-                <h3>SANS FRONTIÈRES</h3>
-                <p>Envoyez votre puissance financière partout dans le monde en 1 seconde.</p>
+    <div class="main-container">
+        <div class="chart-box">
+            <div style="text-align:center;">
+                <p style="color:#666;">[ Graphique Temps Réel BabiCoin ]</p>
+                <h2 id="live-price" style="font-size:3rem; margin:0; color:var(--gold);">฿ 1.05</h2>
             </div>
-            <div class="card">
-                <i class="fas fa-lock" style="font-size: 3rem; color: #ffd700; margin-bottom: 20px;"></i>
-                <h3>SÉCURITÉ MILITAIRE</h3>
-                <p>Vos actifs sont protégés par le protocole de l'Empire.</p>
+        </div>
+
+        <div class="trade-panel">
+            <h3>Trader</h3>
+            <div style="margin-bottom:20px;">
+                <small>Disponible: 0.00 FCFA</small>
+                <input type="number" placeholder="Montant en BABI" style="width:100%; background:#000; border:1px solid #444; color:#fff; padding:10px; margin-top:5px;">
+            </div>
+            <button class="btn-buy" onclick="location.href='inscription.html'">ACHETER</button>
+            <button class="btn-sell" onclick="location.href='inscription.html'">VENDRE</button>
+            
+            <div style="margin-top:30px; font-size:0.8rem; color:#888;">
+                <p>● Réseau : Mainnet</p>
+                <p>● Statut : Opérationnel</p>
             </div>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 SukiOfficial - Global Command Center.
-    </footer>
+    <script>
+        // Simulation de prix qui bouge comme un vrai site
+        setInterval(() => {
+            let basePrice = 1.05;
+            let move = (Math.random() * 0.02) - 0.01;
+            document.getElementById('live-price').innerText = "฿ " + (basePrice + move).toFixed(4);
+        }, 3000);
+    </script>
 </body>
 </html>

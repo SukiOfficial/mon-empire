@@ -41,57 +41,11 @@ nav {
 
 .btn-buy {
     background: #0ecb81; color: white; width: 100%; padding: 12px;
-    border: none; border-radius: 5px;
+    border: none; border-radius: 5px; font-weight: bold; cursor: pointer;
+}
 
-cat <<EOF > index.html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BabiCoin Exchange | Live</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <div style="font-weight:bold; color:var(--gold);">฿ BABICOIN</div>
-        <div class="coin-price">
-            <span>BTC/USD: <strong id="btc-price">4,231</strong></span>
-            <span>BABI/USD: <strong style="color:var(--gold);">.05</strong></span>
-        </div>
-    </nav>
-
-    <div class="main-container">
-        <div class="chart-box">
-            <div style="text-align:center;">
-                <p style="color:#666;">[ Graphique Temps Réel BabiCoin ]</p>
-                <h2 id="live-price" style="font-size:3rem; margin:0; color:var(--gold);">฿ 1.05</h2>
-            </div>
-        </div>
-
-        <div class="trade-panel">
-            <h3>Trader</h3>
-            <div style="margin-bottom:20px;">
-                <small>Disponible: 0.00 FCFA</small>
-                <input type="number" placeholder="Montant en BABI" style="width:100%; background:#000; border:1px solid #444; color:#fff; padding:10px; margin-top:5px;">
-            </div>
-            <button class="btn-buy" onclick="location.href='inscription.html'">ACHETER</button>
-            <button class="btn-sell" onclick="location.href='inscription.html'">VENDRE</button>
-            
-            <div style="margin-top:30px; font-size:0.8rem; color:#888;">
-                <p>● Réseau : Mainnet</p>
-                <p>● Statut : Opérationnel</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Simulation de prix qui bouge comme un vrai site
-        setInterval(() => {
-            let basePrice = 1.05;
-            let move = (Math.random() * 0.02) - 0.01;
-            document.getElementById('live-price').innerText = "฿ " + (basePrice + move).toFixed(4);
-        }, 3000);
-    </script>
-</body>
-</html>
+.btn-sell {
+    background: #f6465d; color: white; width: 100%; padding: 12px;
+    border: none; border-radius: 5px; font-weight: bold; cursor: pointer;
+    margin-top: 10px;
+}
