@@ -3,42 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BabiCoin - Inscription</title>
+    <title>Créer un compte | BabiCoin Pro</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .loading-screen { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: #000; z-index: 9999; justify-content: center; align-items: center; flex-direction: column; }
-        .spinner { width: 50px; height: 50px; border: 5px solid #333; border-top: 5px solid #ffd700; border-radius: 50%; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
 </head>
 <body>
-    <div id="loader" class="loading-screen">
-        <div class="spinner"></div>
-        <p style="color:#ffd700; margin-top:20px;">VÉRIFICATION HUMAINE EN COURS...</p>
-    </div>
+    <nav>
+        <div class="logo">฿ BABICOIN</div>
+        <a href="index.html" style="color: var(--gold); text-decoration: none;">Accueil</a>
+    </nav>
 
-    <div class="form-box">
-        <h2 style="color: #ffd700;">ACCÈS À L'EMPIRE</h2>
-        <p>Entrez vos détails pour recevoir votre clé.</p>
-        <form id="signupForm">
-            <input type="text" placeholder="Nom Complet" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Mot de passe" required>
-            <button type="submit" class="btn-empire">CRÉER MON COMPTE</button>
+    <div class="auth-container">
+        <h2>Créer votre compte personnel</h2>
+        <form id="kycForm">
+            <div class="input-group">
+                <label>Nom d'utilisateur</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="input-group">
+                <label>Adresse Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="input-group">
+                <label>Mot de passe</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="kyc-box">
+                <h4 style="color: var(--gold); margin-bottom: 10px;">Vérification d'Identité (KYC)</h4>
+                <div class="input-group">
+                    <label>Type de document</label>
+                    <select id="docType">
+                        <option value="id_card">Carte Nationale d'Identité</option>
+                        <option value="passport">Passeport</option>
+                        <option value="driver_license">Permis de conduire</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Numéro de la pièce</label>
+                    <input type="text" id="docNumber" placeholder="Ex: 001234567" required>
+                </div>
+                <p style="font-size: 11px; color: #848E9C;">🛡️ Vos données sont cryptées et stockées sur les serveurs sécurisés de Google Cloud.</p>
+            </div>
+
+            <button type="submit" class="btn-submit">S'INSCRIRE ET VÉRIFIER</button>
         </form>
     </div>
 
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('loader').style.display = 'flex';
-            
-            // On simule une vérification de sécurité puissante
-            setTimeout(() => {
-                alert("SYSTÈME : Email de vérification envoyé !\n\nConsultez votre boîte mail pour confirmer que vous n'êtes pas un robot.");
-                window.location.href = "dashboard.html";
-            }, 3000);
-        });
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>
