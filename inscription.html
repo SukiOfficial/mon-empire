@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription - BabiCoin Global</title>
+    <title>BabiCoin - Inscription Sécurisée</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; padding: 20px; text-align: center; }
-        .form-box { border: 1px solid #ffd700; padding: 30px; max-width: 400px; margin: auto; border-radius: 10px; background: #111; box-shadow: 0 0 15px rgba(255,215,0,0.2); }
-        input { width: 100%; padding: 12px; margin: 10px 0; background: #222; border: 1px solid #444; color: #fff; border-radius: 5px; }
-        .btn { background: #ffd700; color: #000; padding: 15px; width: 100%; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
-        .info { font-size: 0.85rem; color: #ffd700; margin-top: 20px; line-height: 1.4; border-top: 1px dashed #444; padding-top: 15px; }
-        .back { display: block; margin-top: 20px; color: #888; text-decoration: none; }
+        body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .auth-container { background: #111; padding: 30px; border-radius: 20px; border: 1px solid #ffd700; width: 90%; max-width: 400px; text-align: center; }
+        .social-btn { width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .google { background: #fff; color: #000; }
+        .facebook { background: #1877f2; color: #fff; }
+        .divider { margin: 20px 0; color: #444; position: relative; }
+        .divider::before { content: ""; position: absolute; width: 40%; height: 1px; background: #333; left: 0; top: 50%; }
+        .divider::after { content: ""; position: absolute; width: 40%; height: 1px; background: #333; right: 0; top: 50%; }
+        input { width: 100%; padding: 12px; margin: 8px 0; background: #222; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; }
+        .btn-empire { width: 100%; padding: 15px; background: #ffd700; border: none; border-radius: 10px; font-weight: bold; margin-top: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div class="form-box">
-        <h2>Rejoindre l'Empire</h2>
-        <p style="color: #888;">Identité Numérique Globale</p>
-        <form>
-            <input type="text" placeholder="Prénom" required>
-            <input type="text" placeholder="Nom de famille" required>
+    <div class="auth-container">
+        <h2 style="color: #ffd700;">Rejoindre l'Empire</h2>
+        <p style="font-size: 0.9rem; color: #888;">Accès mondial instantané</p>
+
+        <button class="social-btn google"><i class="fab fa-google"></i> Continuer avec Google</button>
+        <button class="social-btn facebook"><i class="fab fa-facebook"></i> Continuer avec Facebook</button>
+
+        <div class="divider">OU</div>
+
+        <form id="signupForm">
             <input type="text" placeholder="Nom d'utilisateur" required>
-            <input type="number" placeholder="Âge (Minimum 18 ans)" min="18" required>
-            
-            <div class="info">
-                🛡️ <strong>CONFIDENTIALITÉ TOTALE</strong><br>
-                Nous croyons en la liberté. Aucune pièce d'identité n'est requise. Votre compte est sécurisé par la blockchain BabiCoin.
-            </div>
-            
-            <button type="submit" class="btn">Activer mon accès mondial</button>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Mot de passe" required>
+            <input type="number" placeholder="Âge (18+)" min="18" required>
+            <button type="submit" class="btn-empire">CRÉER MON COMPTE</button>
         </form>
     </div>
-    <a href="index.html" class="back">← Retour au terminal</a>
-</body>
+<script src="auth.js"></script></body>
 </html>
